@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head><title>Results</title></head>
+<body>
+  <h2>Processed Results</h2>
+  <table border="1">
+    <thead>
+      <tr><th>Comment</th><th>Sentiment</th><th>Category</th><th>Key Themes</th></tr>
+    </thead>
+    <tbody>
+      {% for row in data %}
+      <tr>
+        <td>{{ row['Comment'] }}</td>
+        <td>{{ row['Sentiment'] }}</td>
+        <td>{{ row['Category'] }}</td>
+        <td>{{ row['Key Themes'] }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <form action="/download" method="get">
+    <a href="/download">
+      <button>Download CSV</button>
+    </a>
+  </form>
+  <p>共处理 {{ data|length }} 条评论</p>
+
+</body>
+</html>
